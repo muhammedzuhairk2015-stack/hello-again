@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Downloader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f0f8ff;
+            padding-top: 100px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkblue;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hello Picture Downloader</h1>
+    <button onclick="downloadImage()">Download Hello Picture</button>
+
+    <script>
+        function downloadImage() {
+            const canvas = document.createElement("canvas");
+            canvas.width = 300;
+            canvas.height = 150;
+
+            const ctx = canvas.getContext("2d");
+
+            ctx.fillStyle = "lightyellow";
+            ctx.fillRect(0, 0, 300, 150);
+
+            ctx.fillStyle = "blue";
+            ctx.font = "40px Arial";
+            ctx.fillText("HELLO", 80, 80);
+
+            const link = document.createElement("a");
+            link.download = "hello-picture.png";
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+    </script>
+
+</body>
+</html>
